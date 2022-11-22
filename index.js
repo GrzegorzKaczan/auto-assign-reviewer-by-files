@@ -31,6 +31,8 @@ async function run() {
     var reviewers = new Set();
     _.each(_.keys(config), (globPattern) => {
       if (hasGlobPatternMatchedFile(changedFiles, globPattern)) {
+        core.info("list :" +config[globPattern]);
+        core.info("author :" + author);
         let newReviewers = _.pull(config[globPattern], author);
         for (const reviewer of newReviewers) {
           reviewers.add(reviewer);
@@ -109,6 +111,8 @@ async function assignReviewer(octokit, reviewer) {
     reviewerKey = "team_reviewers";
     reviewerTarget = reviewer.team;
   }
+
+  core.info("adding reviewer: " + reviewer);
 
   await octokit.pulls.createReviewRequest({
     owner: context.repo.owner,
