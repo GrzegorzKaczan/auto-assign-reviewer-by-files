@@ -2,6 +2,7 @@
 # you can use glob pattern
 '*.js':
   - shufo
+  - GrzegorzKaczan
 # you can set multiple reviewers
 '.github/**/*.yml':
   - shufo
