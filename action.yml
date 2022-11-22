@@ -9,7 +9,7 @@ inputs:
     required: true
     default: 'default'
   config:
-    description: 'condifuration file'
+    description: 'configuration file'
     required: false
     default: '.github/assign-by-files.yml'
 outputs:
