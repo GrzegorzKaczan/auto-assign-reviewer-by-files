@@ -113,6 +113,8 @@ async function assignReviewer(octokit, reviewer) {
     reviewerTarget = reviewer.team;
   }
 
+  core.info("adding " + reviewer);
+
   await octokit.pulls.createReviewRequest({
     owner: context.repo.owner,
     repo: context.repo.repo,
