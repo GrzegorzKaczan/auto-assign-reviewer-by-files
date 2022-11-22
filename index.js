@@ -34,7 +34,6 @@ async function run() {
         core.info("list :" +config[globPattern]);
         core.info("author :" + author);
         let newReviewers = _.pull(config[globPattern], author);
-        core.info(newReviewers);
         for (const reviewer of newReviewers) {
           reviewers.add(reviewer);
         }
@@ -113,7 +112,7 @@ async function assignReviewer(octokit, reviewer) {
     reviewerTarget = reviewer.team;
   }
 
-  core.info("adding " + reviewer);
+  core.info("adding reviewer: " + reviewer);
 
   await octokit.pulls.createReviewRequest({
     owner: context.repo.owner,
